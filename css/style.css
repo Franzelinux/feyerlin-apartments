@@ -2,8 +2,8 @@
 
 :root {
 /* Website-Branding-Kit (aus Wix übernommen) */
---color-dark: #2c382d;
---color-dark-2: #1f2a20;
+--color-dark: #556A73;
+--color-dark-2: #435560;
 --color-cream: #f4f2ea;
 --color-cream-2: #eae6d8;
 --color-sage: #a9b3a1;
@@ -238,7 +238,7 @@ section { padding: 84px 0; }
 .section-eyebrow {
 text-transform: uppercase;
 letter-spacing: 0.18em;
-font-size: 0.78rem;
+font-size: 1rem;
 color: var(--color-tan);
 font-weight: bold;
 margin-bottom: 10px;
