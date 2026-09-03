@@ -4,13 +4,13 @@
 /* Website-Branding-Kit (aus Wix übernommen) */
 --color-dark: #556A73;
 --color-dark-2: #435560;
---color-cream: #f4f2ea;
---color-cream-2: #eae6d8;
---color-sage: #a9b3a1;
---color-sage-2: #96a08d;
---color-tan: #d4c580;
---color-text: #33342f;
---color-muted: #6b6d62;
+--color-cream: #f1f4f5;
+--color-cream-2: #e4e9eb;
+--color-sage: #6d838c;
+--color-sage-2: #5d717a;
+--color-tan: #c2a874;
+--color-text: #2e3538;
+--color-muted: #5c6b71;
 --font-heading: "Marcellus", Georgia, "Times New Roman", serif;
 --font-body: "Wix Madefor Text", "Helvetica Neue", Arial, sans-serif;
 --max-width: 1180px;
