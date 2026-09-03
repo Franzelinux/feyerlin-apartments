@@ -75,9 +75,9 @@ if (form) {
 // matching the names below (from_name, from_email, phone, dates,
 // adults, children, apartments, message).
 // 3. Replace the three placeholders below with your own IDs/keys.
-var EMAILJS_PUBLIC_KEY = "YOUR_EMAILJS_PUBLIC_KEY";
-var EMAILJS_SERVICE_ID = "YOUR_EMAILJS_SERVICE_ID";
-var EMAILJS_TEMPLATE_ID = "YOUR_EMAILJS_TEMPLATE_ID";
+var EMAILJS_PUBLIC_KEY = "ATO50gbUk02CNmd3V";
+var EMAILJS_SERVICE_ID = "service_2fbvu14";
+var EMAILJS_TEMPLATE_ID = "template_l7974p1";
 // Where booking requests are sent right now (test address).
 // Change to your real address once you're ready to go live.
 var NOTIFY_EMAIL = "kilaz.hackintosh@gmail.com";
@@ -104,6 +104,7 @@ to_email: NOTIFY_EMAIL,
 from_name: form.firstname.value + " " + form.lastname.value,
 from_email: form.email.value,
 phone: form.phone.value,
+language: form.language.value,
 dates: form.dates.value,
 adults: form.adults.value,
 children: form.children.value || "0",
@@ -142,6 +143,7 @@ var body = encodeURIComponent(
 "Name: " + data.from_name + "\n" +
 "E-Mail: " + data.from_email + "\n" +
 "Telefon: " + data.phone + "\n" +
+"Sprache: " + data.language + "\n" +
 "Zeitraum: " + data.dates + "\n" +
 "Erwachsene: " + data.adults + " / Kinder: " + data.children + "\n" +
 "Apartment(s): " + data.apartments + "\n\n" +
