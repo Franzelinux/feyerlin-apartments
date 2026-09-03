@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<meta name="color-scheme" content="light">
+<title>Buchungsanfrage — Feyerlin Apartments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Wix+Madefor+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+<a href="index.html" class="logo">
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 20L9 8l4 7 3-5 5 10H3z" fill="#2c382d"/></svg>
+Feyerlin Apartments
+</a>
+<button class="nav-toggle" aria-label="Menü öffnen">&#9776;</button>
+<nav class="main-nav">
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="impressum.html">Impressum</a></li>
+<li><a href="buchungsanfrage.html" class="active">Buchungsanfrage</a></li>
+<li><a href="kulinarik.html">Kulinarik &amp; Genuss</a></li>
+<li><a href="urlaub-mit-hund.html">Urlaub mit Hund</a></li>
+</ul>
+</nav>
+</header>
+
+<section>
+<div class="container reveal" style="text-align:center;">
+<h1 class="section-title">Apartmenthaus Feyerlin</h1>
+<p class="section-lead" style="margin-left:auto;margin-right:auto;">Ferienwohnungen im Haus Feyerlin</p>
+</div>
+
+<div class="container reveal">
+<form id="booking-form" class="booking-form" novalidate>
+
+<div class="field full">
+<label for="dates">Anreise &ndash; Abreise *</label>
+<div class="date-field-wrap">
+<input type="text" id="dates" name="dates" class="date-input" placeholder="Zeitraum auswählen" readonly required>
+<svg class="date-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<rect x="3" y="5" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.6"/>
+<path d="M3 9.5H21" stroke="currentColor" stroke-width="1.6"/>
+<path d="M8 3V6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+<path d="M16 3V6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
+</div>
+</div>
+
+<div class="field full" style="display:flex; gap:24px; flex-wrap:wrap;">
+<label class="apartment-choice" style="flex:1; min-width:260px;">
+<input type="checkbox" name="apartment" value="1-Raum-Apartment (67 EUR)">
+<img src="images/apartment-1raum.svg" alt="1-Raum-Apartment">
+<span class="meta">
+<strong>Einraumappartment</strong><br>
+1&ndash;2 Personen | ca. 35 m&sup2;<br>
+67 &euro;
+</span>
+</label>
+<label class="apartment-choice" style="flex:1; min-width:260px;">
+<input type="checkbox" name="apartment" value="2-Raum-Apartment (Preis auf Anfrage)">
+<img src="images/apartment-2raum.svg" alt="2-Raum-Apartment">
+<span class="meta">
+<strong>Zweiraumappartment</strong><br>
+2&ndash;4 Personen | ca. 48 m&sup2;<br>
+Preis auf Anfrage
+</span>
+</label>
+</div>
+
+<div class="field">
+<label for="firstname">Vorname *</label>
+<input type="text" id="firstname" name="firstname" required>
+</div>
+<div class="field">
+<label for="lastname">Nachname *</label>
+<input type="text" id="lastname" name="lastname" required>
+</div>
+
+<div class="field">
+<label for="adults">Anzahl Erwachsene *</label>
+<input type="number" id="adults" name="adults" min="1" required>
+</div>
+<div class="field">
+<label for="children">Anzahl Kinder</label>
+<input type="number" id="children" name="children" min="0">
+</div>
+
+<div class="field">
+<label for="email">E-Mail-Adresse *</label>
+<input type="email" id="email" name="email" required>
+</div>
+<div class="field">
+<label for="phone">Telefonnummer *</label>
+<input type="tel" id="phone" name="phone" required>
+</div>
+
+<div class="field full">
+<label for="message">Bemerkung</label>
+<textarea id="message" name="message"></textarea>
+</div>
+
+<div class="field full">
+<button type="submit" class="btn btn-solid">Einreichen</button>
+<p class="form-note">Diese Anfrage wird per E-Mail an uns gesendet, es ist keine automatische Sofortbuchung. Wir bestätigen Ihre Reservierung persönlich.</p>
+<div id="form-status"></div>
+</div>
+
+</form>
+</div>
+</section>
+
+<footer class="site-footer">
+<a href="index.html" class="logo">
+<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3 20L9 8l4 7 3-5 5 10H3z" fill="#2c382d"/></svg>
+Feyerlin Apartments
+</a>
+<div class="brand-word">FEYERLIN</div>
+<p class="fine-print">&copy; 2026 Feyerlin Apartments. Alle Rechte vorbehalten. | <a href="impressum.html">Impressum</a> | <a href="impressum.html">Datenschutz</a></p>
+</footer>
+
+<!-- Flatpickr — schöner Kalender für die Datumsauswahl (Start/Ende) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.css">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/l10n/de.js"></script>
+
+<!-- EmailJS SDK — sends the booking request straight from the browser, no backend needed -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
