@@ -455,6 +455,34 @@ box-shadow: 0 0 0 3px rgba(47,59,48,0.12);
 /* Date range picker (Flatpickr) */
 .date-field-wrap { position: relative; }
 
+.price-preview {
+margin-top: 14px;
+padding: 16px 20px;
+background: var(--color-cream-2);
+border: 1px solid var(--color-input-border);
+border-radius: 4px;
+}
+.price-preview p { margin: 0; color: var(--color-muted); }
+.price-preview-nights {
+font-family: var(--font-heading);
+color: var(--color-text);
+font-size: 1.05rem;
+margin-bottom: 8px !important;
+}
+.price-preview-row {
+display: flex;
+justify-content: space-between;
+padding: 5px 0;
+font-size: 0.95rem;
+}
+.price-preview-row span { color: var(--color-muted); }
+.price-preview-row strong { color: var(--color-text); font-weight: 600; }
+.price-preview-fee {
+margin-top: 4px;
+padding-top: 10px;
+border-top: 1px solid var(--color-input-border);
+}
+
 .date-input {
 width: 100%;
 padding: 16px 44px 16px 18px;
