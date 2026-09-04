@@ -161,6 +161,7 @@ height: 100%;
 object-fit: cover;
 z-index: 0;
 animation: hero-zoom 18s ease-in-out infinite alternate;
+filter: saturate(1.35) contrast(1.08) brightness(1.03);
 }
 
 @keyframes hero-zoom {
@@ -172,7 +173,7 @@ to { transform: scale(1.08); }
 content: "";
 position: absolute;
 inset: 0;
-background: linear-gradient(180deg, rgba(20,26,20,0.35), rgba(20,26,20,0.55));
+background: linear-gradient(180deg, rgba(20,26,20,0.08), rgba(20,26,20,0.32));
 z-index: 1;
 }
 
@@ -195,6 +196,7 @@ font-size: clamp(2.4rem, 6vw, 4.2rem);
 letter-spacing: 0.12em;
 margin: 0 0 28px;
 text-transform: uppercase;
+text-shadow: 0 2px 18px rgba(0,0,0,0.45), 0 1px 4px rgba(0,0,0,0.5);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -221,6 +223,11 @@ background: #fff;
 color: var(--color-dark);
 transform: translateY(-3px);
 box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+.hero .btn {
+background: rgba(20,26,20,0.4);
+box-shadow: 0 4px 16px rgba(0,0,0,0.25);
 }
 
 .btn-solid {
