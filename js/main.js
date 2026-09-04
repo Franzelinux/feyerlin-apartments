@@ -128,27 +128,28 @@ minDate: "today",
 showMonths: 2,
 locale: "de",
 altInputClass: "date-input",
-onChange: function (selectedDates, dateStr, instance) {
-if (selectedDates.length === 1) {
-// Block the first (MIN_NIGHTS - 1) days after the chosen arrival
-// date, so an end date can't be picked that gives too short a stay.
-var blocked = [];
-for (var i = 1; i < MIN_NIGHTS; i++) {
-var d = new Date(selectedDates[0]);
-d.setDate(d.getDate() + i);
-blocked.push(d);
+// While only the arrival date is picked, grey out every day that
+// would give a stay shorter than MIN_NIGHTS as a departure date —
+// in both directions, since Flatpickr sorts a range regardless of
+// click order (clicking an earlier day would otherwise silently
+// become the new check-in and bypass the limit).
+onDayCreate: function (dObj, dStr, instance, dayElem) {
+if (instance.selectedDates.length !== 1) return;
+var start = instance.selectedDates[0];
+var diffDays = Math.round((dayElem.dateObj - start) / 86400000);
+if (diffDays !== 0 && Math.abs(diffDays) < MIN_NIGHTS) {
+dayElem.classList.add("flatpickr-disabled");
 }
-instance.set("disable", blocked);
-resetApartmentPrices();
-} else if (selectedDates.length === 2) {
-instance.set("disable", []);
+},
+onChange: function (selectedDates, dateStr, instance) {
+if (selectedDates.length === 2) {
 var fmt = function (d) { return instance.formatDate(d, "d.m.Y"); };
 instance.altInput.value = fmt(selectedDates[0]) + " – " + fmt(selectedDates[1]);
 renderPricePreview(selectedDates[0], selectedDates[1]);
 } else {
-instance.set("disable", []);
 resetApartmentPrices();
 }
+instance.redraw();
 }
 });
 }
