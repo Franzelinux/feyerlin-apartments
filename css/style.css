@@ -543,7 +543,7 @@ display: none;
 
 .legal-content h2 { font-family: var(--font-heading); font-weight: 400; margin-top: 40px; }
 .legal-content p { color: var(--color-muted); }
-.legal-content { max-width: 800px; }
+.legal-content { max-width: 800px; margin: 0 auto; }
 
 .placeholder-note {
 display: inline-block;
