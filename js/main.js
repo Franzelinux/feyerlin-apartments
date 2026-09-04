@@ -58,6 +58,7 @@ var PRICE_SEASONS = [
 { start: "2026-10-17", end: "2026-11-07", era: 78, zra: 88 }
 ];
 var ENDREINIGUNG = 47;
+var MIN_NIGHTS = 3;
 
 function priceForNight(dateStr) {
 for (var i = 0; i < PRICE_SEASONS.length; i++) {
@@ -71,12 +72,25 @@ function toISODate(d) {
 return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
 }
 
+function resetApartmentPrices() {
+var era = document.getElementById("price-era");
+var zra = document.getElementById("price-zra");
+if (era) era.innerHTML = "ab 67 &euro;";
+if (zra) zra.innerHTML = "ab 77 &euro;";
+}
+
 function renderPricePreview(checkIn, checkOut) {
-var box = document.getElementById("price-preview");
-if (!box) return;
+var era = document.getElementById("price-era");
+var zra = document.getElementById("price-zra");
+if (!era || !zra) return;
 
 var nights = Math.round((checkOut - checkIn) / 86400000);
-if (nights <= 0) { box.hidden = true; return; }
+if (nights <= 0) { resetApartmentPrices(); return; }
+if (nights < MIN_NIGHTS) {
+era.innerHTML = "Preis auf Anfrage";
+zra.innerHTML = "Preis auf Anfrage";
+return;
+}
 
 var eraTotal = 0, zraTotal = 0, missing = false;
 var cursor = new Date(checkIn);
@@ -89,17 +103,14 @@ cursor.setDate(cursor.getDate() + 1);
 }
 
 if (missing) {
-box.hidden = false;
-box.innerHTML = "<p>Für diesen Zeitraum liegt noch keine Online-Preisliste vor &ndash; bitte einfach anfragen, wir sagen Ihnen den Preis persönlich.</p>";
+era.innerHTML = "Preis auf Anfrage";
+zra.innerHTML = "Preis auf Anfrage";
 return;
 }
 
-box.hidden = false;
-box.innerHTML =
-"<p class=\"price-preview-nights\">" + nights + " " + (nights === 1 ? "Nacht" : "Nächte") + "</p>" +
-"<div class=\"price-preview-row\"><span>Einraumappartment</span><strong>" + eraTotal + " &euro;</strong></div>" +
-"<div class=\"price-preview-row\"><span>Zweiraumappartment</span><strong>" + zraTotal + " &euro;</strong></div>" +
-"<div class=\"price-preview-row price-preview-fee\"><span>+ Endreinigung (einmalig)</span><strong>" + ENDREINIGUNG + " &euro;</strong></div>";
+var nightsLabel = nights + " " + (nights === 1 ? "Nacht" : "Nächte");
+era.innerHTML = eraTotal + " &euro; <span class=\"apartment-price-note\">für " + nightsLabel + " + " + ENDREINIGUNG + " &euro; Endreinigung</span>";
+zra.innerHTML = zraTotal + " &euro; <span class=\"apartment-price-note\">für " + nightsLabel + " + " + ENDREINIGUNG + " &euro; Endreinigung</span>";
 }
 
 // Date-range calendar for the booking form (Flatpickr)
@@ -118,13 +129,25 @@ showMonths: 2,
 locale: "de",
 altInputClass: "date-input",
 onChange: function (selectedDates, dateStr, instance) {
-if (selectedDates.length === 2) {
+if (selectedDates.length === 1) {
+// Block the first (MIN_NIGHTS - 1) days after the chosen arrival
+// date, so an end date can't be picked that gives too short a stay.
+var blocked = [];
+for (var i = 1; i < MIN_NIGHTS; i++) {
+var d = new Date(selectedDates[0]);
+d.setDate(d.getDate() + i);
+blocked.push(d);
+}
+instance.set("disable", blocked);
+resetApartmentPrices();
+} else if (selectedDates.length === 2) {
+instance.set("disable", []);
 var fmt = function (d) { return instance.formatDate(d, "d.m.Y"); };
 instance.altInput.value = fmt(selectedDates[0]) + " – " + fmt(selectedDates[1]);
 renderPricePreview(selectedDates[0], selectedDates[1]);
 } else {
-var box = document.getElementById("price-preview");
-if (box) box.hidden = true;
+instance.set("disable", []);
+resetApartmentPrices();
 }
 }
 });
