@@ -558,7 +558,31 @@ display: none;
 
 .legal-content h2 { font-family: var(--font-heading); font-weight: 400; margin-top: 40px; }
 .legal-content p { color: var(--color-muted); max-width: 800px; }
-.legal-content ul { max-width: 800px; }
+.legal-content ul { max-width: 800px; color: var(--color-muted); padding-left: 20px; }
+.legal-content h3 {
+text-transform: uppercase;
+letter-spacing: 0.1em;
+font-size: 0.85rem;
+font-weight: 700;
+font-family: var(--font-body);
+color: var(--color-text);
+margin: 32px 0 10px;
+}
+.legal-content hr {
+max-width: 800px;
+margin: 40px 0;
+border: none;
+border-top: 1px solid var(--color-cream-2);
+}
+.legal-box {
+max-width: 800px;
+margin-top: 8px;
+padding: 32px;
+border: 1px solid var(--color-cream-2);
+border-radius: 4px;
+}
+.legal-box h2 { margin-top: 0; }
+.legal-box p:last-child { margin-bottom: 0; }
 
 .placeholder-note {
 display: inline-block;
