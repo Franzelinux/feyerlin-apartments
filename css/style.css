@@ -11,6 +11,8 @@
 --color-tan: #d4c580;
 --color-text: #33342f;
 --color-muted: #6b6d62;
+--color-input-bg: #ffffff;
+--color-input-border: #c9c4b4;
 --font-heading: "Marcellus", Georgia, "Times New Roman", serif;
 --font-body: "Wix Madefor Text", "Helvetica Neue", Arial, sans-serif;
 --max-width: 1180px;
@@ -395,6 +397,7 @@ display: grid;
 grid-template-columns: 1fr 1fr;
 gap: 24px;
 max-width: 900px;
+margin: 0 auto;
 }
 
 form.booking-form .full { grid-column: 1 / -1; }
@@ -413,12 +416,13 @@ font-size: 0.92rem;
 .field textarea,
 .field select {
 width: 100%;
-padding: 12px 14px;
-border: 1px solid #c9c4b4;
+padding: 16px 18px;
+border: 1px solid var(--color-input-border);
 border-radius: 4px;
 font-family: inherit;
-font-size: 0.95rem;
-background: #fff;
+font-size: 1.05rem;
+background: var(--color-input-bg);
+color: var(--color-text);
 transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -437,12 +441,13 @@ box-shadow: 0 0 0 3px rgba(47,59,48,0.12);
 
 .date-input {
 width: 100%;
-padding: 12px 44px 12px 14px;
-border: 1px solid #c9c4b4;
+padding: 16px 44px 16px 18px;
+border: 1px solid var(--color-input-border);
 border-radius: 4px;
 font-family: inherit;
-font-size: 0.95rem;
-background: #fff;
+font-size: 1.05rem;
+background: var(--color-input-bg);
+color: var(--color-text);
 cursor: pointer;
 transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -503,7 +508,7 @@ box-shadow: -5px 0 0 var(--color-cream-2), 5px 0 0 var(--color-cream-2);
 .flatpickr-day:hover { background: var(--color-cream-2); }
 
 .apartment-choice {
-display: flex;
+display: flex !important;
 align-items: center;
 gap: 16px;
 border: 1px solid #c9c4b4;
@@ -518,9 +523,9 @@ box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 transform: translateY(-3px);
 }
 
-.apartment-choice img { width: 90px; height: 70px; object-fit: cover; border-radius: var(--radius-img); }
+.apartment-choice img { width: 140px; height: 110px; object-fit: cover; border-radius: var(--radius-img); flex-shrink: 0; }
 .apartment-choice .meta { flex: 1; }
-.apartment-choice input[type="checkbox"] { width: 20px; height: 20px; }
+.apartment-choice input[type="checkbox"] { width: 20px; height: 20px; flex-shrink: 0; }
 
 .form-note {
 font-size: 0.85rem;
