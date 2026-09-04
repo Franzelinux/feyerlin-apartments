@@ -538,8 +538,8 @@ display: none;
 #form-status.err { display: block; background: #f2dede; color: #a94442; }
 
 .legal-content h2 { font-family: var(--font-heading); font-weight: 400; margin-top: 40px; }
-.legal-content p { color: var(--color-muted); }
-.legal-content { max-width: 800px; margin: 0 auto; }
+.legal-content p { color: var(--color-muted); max-width: 800px; }
+.legal-content ul { max-width: 800px; }
 
 .placeholder-note {
 display: inline-block;
