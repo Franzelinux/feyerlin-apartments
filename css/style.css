@@ -507,6 +507,12 @@ box-shadow: -5px 0 0 var(--color-cream-2), 5px 0 0 var(--color-cream-2);
 .flatpickr-day.today { border-color: var(--color-sage); }
 .flatpickr-day:hover { background: var(--color-cream-2); }
 
+.apartment-options {
+display: flex;
+gap: 24px;
+flex-wrap: wrap;
+}
+
 .apartment-choice {
 display: flex !important;
 align-items: center;
@@ -516,6 +522,9 @@ border-radius: 6px;
 padding: 16px;
 background: #fff;
 transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+flex: 1 1 300px;
+min-width: 0;
+max-width: 100%;
 }
 .apartment-choice:hover {
 border-color: var(--color-dark);
@@ -524,8 +533,13 @@ transform: translateY(-3px);
 }
 
 .apartment-choice img { width: 140px; height: 110px; object-fit: cover; border-radius: var(--radius-img); flex-shrink: 0; }
-.apartment-choice .meta { flex: 1; }
+.apartment-choice .meta { flex: 1; min-width: 0; }
 .apartment-choice input[type="checkbox"] { width: 20px; height: 20px; flex-shrink: 0; }
+
+@media (max-width: 480px) {
+.apartment-choice { flex-basis: 100%; padding: 12px; gap: 12px; }
+.apartment-choice img { width: 90px; height: 70px; }
+}
 
 .form-note {
 font-size: 0.85rem;
