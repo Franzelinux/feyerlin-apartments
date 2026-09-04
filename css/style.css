@@ -573,6 +573,25 @@ display: none;
 #form-status.err { display: block; background: #f2dede; color: #a94442; }
 
 .legal-content h2 { font-family: var(--font-heading); font-weight: 400; margin-top: 40px; }
+
+.price-table-wrap { max-width: 920px; overflow-x: auto; }
+.price-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.price-table th, .price-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--color-cream-2); white-space: nowrap; }
+.price-table th { font-family: var(--font-body); font-weight: 600; color: var(--color-text); border-bottom: 2px solid var(--color-dark); }
+.price-table td { color: var(--color-muted); }
+.price-table td:first-child { color: var(--color-text); }
+.price-table tbody tr:hover { background: rgba(0,0,0,0.03); }
+.price-tag {
+display: inline-block;
+margin-left: 8px;
+padding: 2px 10px;
+font-size: 0.72rem;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+background: var(--color-sage);
+color: var(--color-dark);
+border-radius: 2px;
+}
 .legal-content p { color: var(--color-muted); max-width: 920px; }
 .legal-content ul { max-width: 920px; color: var(--color-muted); padding-left: 20px; }
 .legal-content h3 {
