@@ -455,6 +455,16 @@ box-shadow: 0 0 0 3px rgba(47,59,48,0.12);
 /* Date range picker (Flatpickr) */
 .date-field-wrap { position: relative; }
 
+.stay-warning {
+margin: 10px 0 0;
+padding: 10px 14px;
+background: #fbf2df;
+border: 1px solid #e8d6a8;
+border-radius: 4px;
+color: #8a6a1f;
+font-size: 0.88rem;
+}
+
 .apartment-price { font-weight: 600; color: var(--color-text); }
 .apartment-price-note {
 display: block;

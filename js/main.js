@@ -75,22 +75,27 @@ return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" +
 function resetApartmentPrices() {
 var era = document.getElementById("price-era");
 var zra = document.getElementById("price-zra");
+var warning = document.getElementById("stay-warning");
 if (era) era.innerHTML = "ab 67 &euro;";
 if (zra) zra.innerHTML = "ab 77 &euro;";
+if (warning) warning.hidden = true;
 }
 
 function renderPricePreview(checkIn, checkOut) {
 var era = document.getElementById("price-era");
 var zra = document.getElementById("price-zra");
+var warning = document.getElementById("stay-warning");
 if (!era || !zra) return;
 
 var nights = Math.round((checkOut - checkIn) / 86400000);
-if (nights <= 0) { resetApartmentPrices(); return; }
+if (nights <= 0) { resetApartmentPrices(); if (warning) warning.hidden = true; return; }
 if (nights < MIN_NIGHTS) {
 era.innerHTML = "Preis auf Anfrage";
 zra.innerHTML = "Preis auf Anfrage";
+if (warning) warning.hidden = false;
 return;
 }
+if (warning) warning.hidden = true;
 
 var eraTotal = 0, zraTotal = 0, missing = false;
 var cursor = new Date(checkIn);
@@ -128,19 +133,10 @@ minDate: "today",
 showMonths: 2,
 locale: "de",
 altInputClass: "date-input",
-// While only the arrival date is picked, grey out every day that
-// would give a stay shorter than MIN_NIGHTS as a departure date —
-// in both directions, since Flatpickr sorts a range regardless of
-// click order (clicking an earlier day would otherwise silently
-// become the new check-in and bypass the limit).
-onDayCreate: function (dObj, dStr, instance, dayElem) {
-if (instance.selectedDates.length !== 1) return;
-var start = instance.selectedDates[0];
-var diffDays = Math.round((dayElem.dateObj - start) / 86400000);
-if (diffDays !== 0 && Math.abs(diffDays) < MIN_NIGHTS) {
-dayElem.classList.add("flatpickr-disabled");
-}
-},
+// No hard block on short stays anymore (Flatpickr's range-mode
+// click-sorting made a reliable lock too fragile). Instead
+// renderPricePreview() below shows "Preis auf Anfrage" plus a
+// visible warning for stays under MIN_NIGHTS.
 onChange: function (selectedDates, dateStr, instance) {
 if (selectedDates.length === 2) {
 var fmt = function (d) { return instance.formatDate(d, "d.m.Y"); };
@@ -149,7 +145,6 @@ renderPricePreview(selectedDates[0], selectedDates[1]);
 } else {
 resetApartmentPrices();
 }
-instance.redraw();
 }
 });
 }
