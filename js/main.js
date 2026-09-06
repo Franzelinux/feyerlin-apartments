@@ -58,7 +58,7 @@ var PRICE_SEASONS = [
 { start: "2026-10-17", end: "2026-11-07", era: 78, zra: 88 }
 ];
 var ENDREINIGUNG = 47;
-var MIN_NIGHTS = 3;
+var MIN_NIGHTS = 2;
 
 function priceForNight(dateStr) {
 for (var i = 0; i < PRICE_SEASONS.length; i++) {
