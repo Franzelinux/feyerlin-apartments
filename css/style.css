@@ -72,8 +72,8 @@ text-decoration: none;
 color: var(--color-dark);
 }
 
-.logo svg { width: 34px; height: 34px; transition: transform 0.3s ease; }
-.logo:hover svg { transform: rotate(-8deg) scale(1.08); }
+.logo img { height: 44px; width: auto; display: block; transition: transform 0.3s ease; }
+.logo:hover img { transform: scale(1.04); }
 
 .nav-toggle {
 display: none;
