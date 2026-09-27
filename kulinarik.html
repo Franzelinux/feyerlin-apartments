@@ -8,20 +8,19 @@
 <title>Kulinarik &amp; Genuss — Feyerlin Apartments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Wix+Madefor+Text:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Wix+Madefor+Text:wght@400;500;600&display=optional" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <header class="site-header">
-<a href="index.html" class="logo">
-<img src="images/logo-light.svg" alt="Feyerlin Apartments">
+<a href="index.html" class="logo" aria-label="Feyerlin Apartments">
+<img src="images/logo.svg" alt="Feyerlin Apartments">
 </a>
 <button class="nav-toggle" aria-label="Menü öffnen">&#9776;</button>
 <nav class="main-nav">
 <ul>
 <li><a href="index.html">Home</a></li>
-<li><a href="impressum.html">Impressum</a></li>
 <li><a href="buchungsanfrage.html">Buchungsanfrage</a></li>
 <li><a href="kulinarik.html" class="active">Kulinarik &amp; Genuss</a></li>
 <li><a href="urlaub-mit-hund.html">Urlaub mit Hund</a></li>
@@ -29,12 +28,16 @@
 </nav>
 </header>
 
-<section class="page-hero">
-<img src="images/wine.jpg" alt="Speck und Wein vor Südtiroler Weinbergen">
-<div class="container reveal">
+<section>
+<div class="container two-col">
+<div class="reveal">
 <p class="section-eyebrow">Regionale Spezialitäten</p>
 <h1 class="section-title">Die Seele Südtirols auf dem Teller</h1>
-<p class="section-lead">Von Speck und Knödeln in urigen Kellern bis zu erstklassigem Wein aus den Weinbergen rund um Lana &ndash; gute Küche und Gastfreundschaft finden Sie hier gleich vor der Haustür.</p>
+<p class="section-lead">Entdecken Sie die alpine Hochküche und bodenständige Klassiker direkt vor unserer Haustür. Von herzhaftem Speck bis hin zu feinsten Weinkreationen &ndash; lassen Sie sich von der Vielfalt Lana&rsquo;s verzaubern.</p>
+</div>
+<div class="reveal">
+<img src="images/wine.jpg" alt="Speck und Wein vor Südtiroler Weinbergen">
+</div>
 </div>
 </section>
 
@@ -46,17 +49,17 @@
 <div class="card">
 <h3>Klassisch Südtirolerisch beim <a href="https://www.rebmannhof.com/de/historie/rebmann-keller/24-0.html" target="_blank" rel="noopener">Rebmannkeller</a></h3>
 <p>Nur etwa 3 Minuten zu Fuß von den Feyerlin Apartments entfernt. Authentischer, uriger Südtiroler Keller &ndash; perfekt für einen gemütlichen Abend.</p>
-<a class="btn-route" href="https://www.google.com/maps/dir/?api=1&origin=Kirchweg+23,+39011+Lana,+Italien&destination=Kirchweg+12,+39011+Lana,+Italien" target="_blank" rel="noopener">Route anzeigen &rarr;</a>
+<div class="card-map"><iframe src="https://www.google.com/maps?saddr=Kirchweg+23,+39011+Lana,+Italien&daddr=Kirchweg+12,+39011+Lana,+Italien&output=embed" width="100%" height="180" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Route zum Rebmannkeller"></iframe></div>
 </div>
 <div class="card">
 <h3>Meine Lieblingspizzeria bei <a href="https://monamourlanabz.it/" target="_blank" rel="noopener">Mon Amour</a></h3>
 <p>Neapolitanische Pizza wie in Italien &ndash; mit weichem, luftigem Rand und leckerem Boden. Aber auch leckere italienische Pasta und Fischgerichte.</p>
-<a class="btn-route" href="https://www.google.com/maps/dir/?api=1&origin=Kirchweg+23,+39011+Lana,+Italien&destination=Via+Dogana+6,+39011+Lana,+Italien" target="_blank" rel="noopener">Route anzeigen &rarr;</a>
+<div class="card-map"><iframe src="https://www.google.com/maps?saddr=Kirchweg+23,+39011+Lana,+Italien&daddr=Via+Dogana+6,+39011+Lana,+Italien&output=embed" width="100%" height="180" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Route zu Mon Amour"></iframe></div>
 </div>
 <div class="card">
 <h3>Mein Lieblingskuchen beim <a href="https://www.konditorei-sader.it/" target="_blank" rel="noopener">Sader</a></h3>
 <p>Feine Torten und Kuchen in der Konditorei Sader. Ideal für eine süße Pause nach einem Bummel durch Lana. Das Eis ist auch unter meinen Favoriten.</p>
-<a class="btn-route" href="https://www.google.com/maps/dir/?api=1&origin=Kirchweg+23,+39011+Lana,+Italien&destination=Andreas+Hofer+Str.+9,+39011+Lana,+Italien" target="_blank" rel="noopener">Route anzeigen &rarr;</a>
+<div class="card-map"><iframe src="https://www.google.com/maps?saddr=Kirchweg+23,+39011+Lana,+Italien&daddr=Andreas+Hofer+Str.+9,+39011+Lana,+Italien&output=embed" width="100%" height="180" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Route zu Sader"></iframe></div>
 </div>
 </div>
 </div>
@@ -105,7 +108,8 @@
 <li><a href="https://www.konditorei-sader.it/" target="_blank" rel="noopener">Sader</a></li>
 <li><a href="https://www.google.com/maps/search/Cafe+Konditorei+Zum+Hasen+Lana" target="_blank" rel="noopener">Zum Hasen</a></li>
 <li><a href="https://www.google.com/maps/search/Konditorei+Flora+Lana" target="_blank" rel="noopener">Café Flora</a></li>
-<li><a href="https://www.meinbeck.com/" target="_blank" rel="noopener">Mein Beck</a></li>
+<li><a href="https://www.kuntrawant.com/" target="_blank" rel="noopener">Kuntrawant</a></li>
+<li><a href="https://www.google.com/maps/search/Cafe+Harmonie+Lana" target="_blank" rel="noopener">Café Harmonie</a></li>
 </ul>
 </div>
 </div>
@@ -113,8 +117,8 @@
 </section>
 
 <footer class="site-footer">
-<a href="index.html" class="logo">
-<img src="images/logo-light.svg" alt="Feyerlin Apartments">
+<a href="index.html" class="logo" aria-label="Feyerlin Apartments">
+<img src="images/logo.svg" alt="Feyerlin Apartments">
 </a>
 <div class="brand-word">FEYERLIN</div>
 <p class="fine-print">&copy; 2026 Feyerlin Apartments. Alle Rechte vorbehalten. | <a href="impressum.html">Impressum</a> | <a href="impressum.html">Datenschutz</a></p>
