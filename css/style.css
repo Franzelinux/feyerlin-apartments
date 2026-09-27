@@ -2,6 +2,7 @@
 
 :root {
 /* Website-Branding-Kit (aus Wix übernommen) */
+color-scheme: light dark;
 --color-dark: #2c382d;
 --color-dark-2: #1f2a20;
 --color-cream: #f4f2ea;
@@ -13,11 +14,13 @@
 --color-muted: #6b6d62;
 --color-input-bg: #ffffff;
 --color-input-border: #c9c4b4;
+--color-accent: #2c382d;
 --font-heading: "Marcellus", Georgia, "Times New Roman", serif;
 --font-body: "Wix Madefor Text", "Helvetica Neue", Arial, sans-serif;
 --max-width: 1360px;
 --radius-img: 0px;
 }
+
 
 * { box-sizing: border-box; }
 
@@ -69,11 +72,11 @@ font-family: var(--font-heading);
 font-weight: bold;
 font-size: 1.1rem;
 text-decoration: none;
-color: var(--color-dark);
+color: var(--color-accent);
 }
 
-.logo svg { width: 34px; height: 34px; transition: transform 0.3s ease; }
-.logo:hover svg { transform: rotate(-8deg) scale(1.08); }
+.logo img { height: 44px; width: auto; display: block; transition: transform 0.3s ease; }
+.logo:hover img { transform: scale(1.04); }
 
 .nav-toggle {
 display: none;
@@ -81,7 +84,7 @@ background: none;
 border: none;
 font-size: 1.6rem;
 cursor: pointer;
-color: var(--color-dark);
+color: var(--color-accent);
 }
 
 nav.main-nav ul {
@@ -109,7 +112,7 @@ left: 0;
 bottom: 0;
 width: 100%;
 height: 1px;
-background: var(--color-dark);
+background: var(--color-accent);
 transform: scaleX(0);
 transform-origin: right;
 transition: transform 0.3s ease;
@@ -317,7 +320,7 @@ gap: 32px;
 margin-top: 24px;
 }
 
-.culinary-list-grid > div { border-top: 2px solid var(--color-dark); padding-top: 18px; }
+.culinary-list-grid > div { border-top: 2px solid var(--color-accent); padding-top: 18px; }
 .culinary-list-grid h3 { font-family: var(--font-heading); font-weight: 400; margin: 0 0 14px; }
 .culinary-list-grid ul { list-style: none; padding: 0; margin: 0 0 16px; line-height: 2; border-bottom: 1px solid var(--color-sage-2); padding-bottom: 16px; }
 
@@ -445,7 +448,7 @@ transition: border-color 0.2s ease, box-shadow 0.2s ease;
 .field textarea:focus,
 .field select:focus {
 outline: none;
-border-color: var(--color-dark);
+border-color: var(--color-accent);
 box-shadow: 0 0 0 3px rgba(47,59,48,0.12);
 }
 
@@ -487,7 +490,7 @@ transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .date-input:focus {
 outline: none;
-border-color: var(--color-dark);
+border-color: var(--color-accent);
 box-shadow: 0 0 0 3px rgba(47,59,48,0.12);
 }
 .date-input::placeholder { color: #9a9686; }
@@ -551,17 +554,17 @@ flex-wrap: wrap;
 display: flex !important;
 align-items: center;
 gap: 16px;
-border: 1px solid #c9c4b4;
+border: 1px solid var(--color-input-border);
 border-radius: 6px;
 padding: 16px;
-background: #fff;
+background: var(--color-input-bg);
 transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
 flex: 1 1 300px;
 min-width: 0;
 max-width: 100%;
 }
 .apartment-choice:hover {
-border-color: var(--color-dark);
+border-color: var(--color-accent);
 box-shadow: 0 10px 24px rgba(0,0,0,0.08);
 transform: translateY(-3px);
 }
@@ -595,7 +598,7 @@ display: none;
 .price-table-wrap { max-width: 920px; overflow-x: auto; }
 .price-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
 .price-table th, .price-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--color-cream-2); white-space: nowrap; }
-.price-table th { font-family: var(--font-body); font-weight: 600; color: var(--color-text); border-bottom: 2px solid var(--color-dark); }
+.price-table th { font-family: var(--font-body); font-weight: 600; color: var(--color-text); border-bottom: 2px solid var(--color-accent); }
 .price-table td { color: var(--color-muted); }
 .price-table td:first-child { color: var(--color-text); }
 .price-table tbody tr:hover { background: rgba(0,0,0,0.03); }
@@ -643,4 +646,38 @@ margin-top: 8px;
 font-size: 0.78rem;
 color: var(--color-muted);
 font-style: italic;
+}
+
+/* Fester Darkmode — wird automatisch verwendet, wenn das Gerät auf
+   dunkles Design eingestellt ist. Ersetzt die Farb-Variablen oben,
+   der Rest der Datei bleibt unverändert. */
+@media (prefers-color-scheme: dark) {
+:root {
+--color-cream: #1b211c;
+--color-cream-2: #232a24;
+--color-text: #e9e7dd;
+--color-muted: #a9ab9e;
+--color-input-bg: #242b25;
+--color-input-border: #3a4238;
+--color-accent: #c9d4c2;
+}
+
+.site-header { background: rgba(27, 33, 28, 0.9); }
+
+nav.main-nav li { border-bottom: 1px solid rgba(255,255,255,0.08); }
+
+.section-alt { background: var(--color-dark-2); }
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.date-input:focus {
+box-shadow: 0 0 0 3px rgba(201,212,194,0.18);
+}
+
+.stay-warning {
+background: #362d18;
+border-color: #5c4d24;
+color: #e8cf8a;
+}
 }
