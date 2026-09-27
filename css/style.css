@@ -656,22 +656,23 @@ font-style: italic;
    der Rest der Datei bleibt unverändert. */
 @media (prefers-color-scheme: dark) {
 :root {
---color-cream: #1b211c;
---color-cream-2: #232a24;
+--color-cream: #262e27;
+--color-cream-2: #2e3730;
 --color-text: #e9e7dd;
---color-muted: #a9ab9e;
---color-input-bg: #242b25;
---color-input-border: #3a4238;
+--color-muted: #b3b5a7;
+--color-input-bg: #333d34;
+--color-input-border: #47523f;
 --color-accent: #c9d4c2;
 }
 
-.site-header { background: rgba(27, 33, 28, 0.9); }
+.site-header { background: rgba(38, 46, 39, 0.9); }
 
-.logo img { filter: invert(1) brightness(1.6); }
+.logo picture source,
+.logo img { display: block; }
 
 nav.main-nav li { border-bottom: 1px solid rgba(255,255,255,0.08); }
 
-.section-alt { background: var(--color-dark-2); }
+.section-alt { background: #333d34; }
 
 .field input:focus,
 .field textarea:focus,
