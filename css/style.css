@@ -564,6 +564,25 @@ box-shadow: 0 0 0 3px rgba(47,59,48,0.12);
 /* Date range picker (Flatpickr) */
 .date-field-wrap { position: relative; }
 
+.stay-warning {
+margin: 10px 0 0;
+padding: 10px 14px;
+background: #362d18;
+border: 1px solid #5c4d24;
+border-radius: 4px;
+color: #e8cf8a;
+font-size: 0.88rem;
+}
+
+.apartment-price { font-weight: 600; color: var(--color-text); }
+.apartment-price-note {
+display: block;
+font-weight: 400;
+font-size: 0.82rem;
+color: var(--color-muted);
+margin-top: 2px;
+}
+
 .date-input {
 width: 100%;
 padding: 16px 44px 16px 18px;
@@ -684,6 +703,25 @@ display: none;
 .legal-content h2 { font-family: var(--font-heading); font-weight: 400; margin-top: 40px; }
 .legal-content p { color: var(--color-muted); max-width: 800px; }
 .legal-content ul { max-width: 800px; }
+
+.price-table-wrap { max-width: 920px; overflow-x: auto; }
+.price-table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.price-table th, .price-table td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--color-cream-2); white-space: nowrap; }
+.price-table th { font-family: var(--font-body); font-weight: 600; color: var(--color-text); border-bottom: 2px solid var(--color-dark); }
+.price-table td { color: var(--color-muted); }
+.price-table td:first-child { color: var(--color-text); }
+.price-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+.price-tag {
+display: inline-block;
+margin-left: 8px;
+padding: 2px 10px;
+font-size: 0.72rem;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+background: var(--color-tan);
+color: var(--color-cream);
+border-radius: 2px;
+}
 
 .placeholder-note {
 display: inline-block;

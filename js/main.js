@@ -42,6 +42,82 @@ revealEls.forEach(function (el) { el.classList.add("in-view"); });
 }
 }
 
+// Season price list 2026 (must stay in sync with the table on
+// buchungsanfrage.html). Prices are per apartment, per night.
+var PRICE_SEASONS = [
+{ start: "2026-02-21", end: "2026-03-27", era: 67, zra: 77 },
+{ start: "2026-03-28", end: "2026-04-10", era: 84, zra: 94 },
+{ start: "2026-04-11", end: "2026-04-30", era: 78, zra: 88 },
+{ start: "2026-05-01", end: "2026-05-22", era: 83, zra: 93 },
+{ start: "2026-05-23", end: "2026-06-05", era: 96, zra: 106 },
+{ start: "2026-06-06", end: "2026-07-10", era: 94, zra: 104 },
+{ start: "2026-07-11", end: "2026-08-21", era: 99, zra: 114 },
+{ start: "2026-08-22", end: "2026-09-11", era: 99, zra: 114 },
+{ start: "2026-09-12", end: "2026-10-02", era: 96, zra: 106 },
+{ start: "2026-10-03", end: "2026-10-16", era: 83, zra: 93 },
+{ start: "2026-10-17", end: "2026-11-07", era: 78, zra: 88 }
+];
+var ENDREINIGUNG = 47;
+var MIN_NIGHTS = 2;
+
+function priceForNight(dateStr) {
+for (var i = 0; i < PRICE_SEASONS.length; i++) {
+var s = PRICE_SEASONS[i];
+if (dateStr >= s.start && dateStr <= s.end) return s;
+}
+return null;
+}
+
+function toISODate(d) {
+return d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+}
+
+function resetApartmentPrices() {
+var era = document.getElementById("price-era");
+var zra = document.getElementById("price-zra");
+var warning = document.getElementById("stay-warning");
+if (era) era.innerHTML = "ab 67 &euro;";
+if (zra) zra.innerHTML = "ab 77 &euro;";
+if (warning) warning.hidden = true;
+}
+
+function renderPricePreview(checkIn, checkOut) {
+var era = document.getElementById("price-era");
+var zra = document.getElementById("price-zra");
+var warning = document.getElementById("stay-warning");
+if (!era || !zra) return;
+
+var nights = Math.round((checkOut - checkIn) / 86400000);
+if (nights <= 0) { resetApartmentPrices(); if (warning) warning.hidden = true; return; }
+if (nights < MIN_NIGHTS) {
+era.innerHTML = "Preis auf Anfrage <span class=\"apartment-price-note\">wegen Mindestaufenthalt</span>";
+zra.innerHTML = "Preis auf Anfrage <span class=\"apartment-price-note\">wegen Mindestaufenthalt</span>";
+if (warning) warning.hidden = false;
+return;
+}
+if (warning) warning.hidden = true;
+
+var eraTotal = 0, zraTotal = 0, missing = false;
+var cursor = new Date(checkIn);
+for (var n = 0; n < nights; n++) {
+var season = priceForNight(toISODate(cursor));
+if (!season) { missing = true; break; }
+eraTotal += season.era;
+zraTotal += season.zra;
+cursor.setDate(cursor.getDate() + 1);
+}
+
+if (missing) {
+era.innerHTML = "Preis auf Anfrage <span class=\"apartment-price-note\">für diesen Zeitraum gerne auf Anfrage</span>";
+zra.innerHTML = "Preis auf Anfrage <span class=\"apartment-price-note\">für diesen Zeitraum gerne auf Anfrage</span>";
+return;
+}
+
+var nightsLabel = nights + " " + (nights === 1 ? "Nacht" : "Nächte");
+era.innerHTML = eraTotal + " &euro; <span class=\"apartment-price-note\">für " + nightsLabel + " + " + ENDREINIGUNG + " &euro; Endreinigung</span>";
+zra.innerHTML = zraTotal + " &euro; <span class=\"apartment-price-note\">für " + nightsLabel + " + " + ENDREINIGUNG + " &euro; Endreinigung</span>";
+}
+
 // Date-range calendar for the booking form (Flatpickr)
 var datesInput = document.getElementById("dates");
 if (datesInput && window.flatpickr) {
@@ -57,10 +133,17 @@ minDate: "today",
 showMonths: 2,
 locale: "de",
 altInputClass: "date-input",
+// No hard block on short stays anymore (Flatpickr's range-mode
+// click-sorting made a reliable lock too fragile). Instead
+// renderPricePreview() below shows "Preis auf Anfrage" plus a
+// visible warning for stays under MIN_NIGHTS.
 onChange: function (selectedDates, dateStr, instance) {
 if (selectedDates.length === 2) {
 var fmt = function (d) { return instance.formatDate(d, "d.m.Y"); };
 instance.altInput.value = fmt(selectedDates[0]) + " – " + fmt(selectedDates[1]);
+renderPricePreview(selectedDates[0], selectedDates[1]);
+} else {
+resetApartmentPrices();
 }
 }
 });
