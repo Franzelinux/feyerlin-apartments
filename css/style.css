@@ -153,7 +153,13 @@ align-items: center;
 justify-content: center;
 text-align: center;
 color: #fff;
+}
+
+.hero-media {
+position: absolute;
+inset: 0;
 overflow: hidden;
+z-index: 0;
 }
 
 .hero img {
@@ -164,14 +170,15 @@ height: 100%;
 object-fit: cover;
 z-index: 0;
 animation: hero-zoom 18s ease-in-out infinite alternate;
-filter: saturate(1.35) contrast(1.08) brightness(1.03);
 will-change: transform;
 backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+-webkit-transform: translateZ(0);
 }
 
 @keyframes hero-zoom {
-from { transform: scale(1); }
-to { transform: scale(1.08); }
+from { transform: scale(1) translateZ(0); }
+to { transform: scale(1.08) translateZ(0); }
 }
 
 .hero-content {
@@ -181,6 +188,9 @@ padding: 0 20px;
 animation: hero-fade-up 1.1s ease both;
 transform: translateZ(0);
 backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+-webkit-transform: translateZ(0);
+isolation: isolate;
 }
 
 @keyframes hero-fade-up {
