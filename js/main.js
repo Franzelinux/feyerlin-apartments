@@ -90,8 +90,8 @@ if (!era || !zra) return;
 var nights = Math.round((checkOut - checkIn) / 86400000);
 if (nights <= 0) { resetApartmentPrices(); if (warning) warning.hidden = true; return; }
 if (nights < MIN_NIGHTS) {
-era.innerHTML = "Preis auf Anfrage";
-zra.innerHTML = "Preis auf Anfrage";
+era.innerHTML = "Preis auf Anfrage <span class=\"apartment-price-note\">wegen Mindestaufenthalt</span>";
+zra.innerHTML = "Preis auf Anfrage <span class=\"apartment-price-note\">wegen Mindestaufenthalt</span>";
 if (warning) warning.hidden = false;
 return;
 }
@@ -108,8 +108,8 @@ cursor.setDate(cursor.getDate() + 1);
 }
 
 if (missing) {
-era.innerHTML = "Preis auf Anfrage";
-zra.innerHTML = "Preis auf Anfrage";
+era.innerHTML = "Preis auf Anfrage <span class=\"apartment-price-note\">für diesen Zeitraum gerne auf Anfrage</span>";
+zra.innerHTML = "Preis auf Anfrage <span class=\"apartment-price-note\">für diesen Zeitraum gerne auf Anfrage</span>";
 return;
 }
 
