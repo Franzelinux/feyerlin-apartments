@@ -664,6 +664,8 @@ font-style: italic;
 
 .site-header { background: rgba(27, 33, 28, 0.9); }
 
+.logo img { filter: invert(1) brightness(1.6); }
+
 nav.main-nav li { border-bottom: 1px solid rgba(255,255,255,0.08); }
 
 .section-alt { background: var(--color-dark-2); }
