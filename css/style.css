@@ -357,6 +357,9 @@ transition: transform 0.5s ease;
 .card p { color: var(--color-muted); margin: 0; }
 .card .price { font-weight: bold; color: var(--color-tan); margin-top: 8px; }
 
+.card-map { margin-top: 16px; border-radius: 6px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+.card-map iframe { display: block; }
+
 .callout-box {
 background: var(--color-cream-2);
 border-radius: 8px;
