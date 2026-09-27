@@ -2,17 +2,17 @@
 
 :root {
 /* Website-Branding-Kit (aus Wix übernommen) */
---color-dark: #52705d;
---color-dark-2: #435c4c;
---color-cream: #1e2620;
---color-cream-2: #262f28;
---color-sage: #3a4d3f;
---color-sage-2: #47604d;
+--color-dark: #c9d4c2;
+--color-dark-2: #b3c2ac;
+--color-cream: #262e27;
+--color-cream-2: #2e3730;
+--color-sage: #2e3730;
+--color-sage-2: #3a443b;
 --color-tan: #d9bb84;
---color-text: #e6ece5;
---color-muted: #9fb2a4;
---color-input-bg: #262f28;
---color-input-border: #44543f;
+--color-text: #e9e7dd;
+--color-muted: #b3b5a7;
+--color-input-bg: #333d34;
+--color-input-border: #47523f;
 --font-heading: "Marcellus", Georgia, "Times New Roman", serif;
 --font-body: "Wix Madefor Text", "Helvetica Neue", Arial, sans-serif;
 --max-width: 1180px;
@@ -218,7 +218,7 @@ cursor: pointer;
 
 .btn:hover {
 background: #fff;
-color: var(--color-dark);
+color: var(--color-cream);
 transform: translateY(-3px);
 box-shadow: 0 10px 24px rgba(0,0,0,0.18);
 }
@@ -501,7 +501,7 @@ margin: 4px 0 20px;
 width: 38px; height: 38px;
 border-radius: 50%;
 background: var(--color-dark);
-color: #fff;
+color: var(--color-cream);
 display: flex; align-items: center; justify-content: center;
 text-decoration: none;
 font-size: 0.85rem;
@@ -636,6 +636,7 @@ span.flatpickr-weekday { color: var(--color-muted); }
 .flatpickr-day.endRange {
 background: var(--color-dark);
 border-color: var(--color-dark);
+color: var(--color-cream);
 }
 .flatpickr-day.selected:hover,
 .flatpickr-day.startRange:hover,
