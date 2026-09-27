@@ -2,7 +2,7 @@
 
 :root {
 /* Website-Branding-Kit (aus Wix übernommen) */
-color-scheme: light dark;
+color-scheme: light;
 --color-dark: #2c382d;
 --color-dark-2: #1f2a20;
 --color-cream: #f4f2ea;
@@ -659,41 +659,4 @@ margin-top: 8px;
 font-size: 0.78rem;
 color: var(--color-muted);
 font-style: italic;
-}
-
-/* Fester Darkmode — wird automatisch verwendet, wenn das Gerät auf
-   dunkles Design eingestellt ist. Ersetzt die Farb-Variablen oben,
-   der Rest der Datei bleibt unverändert. */
-@media (prefers-color-scheme: dark) {
-:root {
---color-cream: #262e27;
---color-cream-2: #2e3730;
---color-text: #e9e7dd;
---color-muted: #b3b5a7;
---color-input-bg: #333d34;
---color-input-border: #47523f;
---color-accent: #c9d4c2;
-}
-
-.site-header { background: rgba(38, 46, 39, 0.9); }
-
-.logo picture source,
-.logo img { display: block; }
-
-nav.main-nav li { border-bottom: 1px solid rgba(255,255,255,0.08); }
-
-.section-alt { background: #333d34; }
-
-.field input:focus,
-.field textarea:focus,
-.field select:focus,
-.date-input:focus {
-box-shadow: 0 0 0 3px rgba(201,212,194,0.18);
-}
-
-.stay-warning {
-background: #362d18;
-border-color: #5c4d24;
-color: #e8cf8a;
-}
 }
